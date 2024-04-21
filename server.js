@@ -26,7 +26,7 @@ const reviewSchema = new mongoose.Schema({
 
 const Review = mongoose.model("Review", reviewSchema);
 
-app.post("/reviews", async (req, res) => {
+app.post("/api/reviews", async (req, res) => {
   try {
     const { name, review } = req.body;
     const newReview = new Review({ name, review });
@@ -38,7 +38,7 @@ app.post("/reviews", async (req, res) => {
   }
 });
 
-app.get("/reviews", async (req, res) => {
+app.get("/api/reviews", async (req, res) => {
   try {
     const reviews = await Review.find();
     res.status(200).json(reviews);
@@ -48,7 +48,7 @@ app.get("/reviews", async (req, res) => {
   }
 });
 
-app.delete("/reviews/:id", async (req, res) => {
+app.delete("/api/reviews/:id", async (req, res) => {
   try {
     const { id } = req.params;
     await Review.findByIdAndDelete(id);
