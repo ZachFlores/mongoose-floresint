@@ -8,9 +8,10 @@ app.use(express.json());
 app.use(cors());
 
 mongoose
-  .connect("mongodb+srv://nickflores34:P60Ax9XPHtmofN0x@cluster0.grkm6gm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+  .connect("mongodb+srv://nickflores34:P60Ax9XPHtmofN0x@cluster0.grkm6gm.mongodb.net/<dbname>?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .then(() => {
     console.log("Connected to MongoDB Atlas");
@@ -20,8 +21,8 @@ mongoose
   });
 
 const reviewSchema = new mongoose.Schema({
-  name: String,
-  review: String,
+  name: { type: String, required: true },
+  review: { type: String, required: true },
 });
 
 const Review = mongoose.model("Review", reviewSchema);
