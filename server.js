@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose
-  .connect("mongodb+srv://nickflores34:P60Ax9XPHtmofN0x@cluster0.grkm6gm.mongodb.net/<dbname>?retryWrites=true&w=majority",)
+  .connect("mongodb+srv://nickflores34:vqTUeI8FcWdGdevV@cluster0.grkm6gm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",)
   .then(() => {
     console.log("Connected to MongoDB Atlas");
   })
